@@ -1,0 +1,333 @@
+/* ================================
+   RESET
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ================================
+   BODY
+================================ */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f8;
+    color: #172033;
+    line-height: 1.6;
+    transition: background 0.3s, color 0.3s;
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+.header {
+    background: linear-gradient(135deg, #172554, #1e3a8a);
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+.header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.header p {
+    color: #dbeafe;
+}
+
+.header .label {
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    color: #facc15;
+}
+
+
+/* ================================
+   CONTAINER
+================================ */
+
+.container {
+    width: min(100% - 32px, 1000px);
+    margin: 35px auto;
+}
+
+
+/* ================================
+   CARD
+================================ */
+
+.card {
+    background: white;
+    padding: 28px;
+    margin-bottom: 22px;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(15, 23, 42, 0.08);
+    border: 1px solid #e5e7eb;
+}
+
+.card h2 {
+    color: #172554;
+    margin-bottom: 14px;
+    font-size: 22px;
+}
+
+.card p {
+    margin-bottom: 12px;
+}
+
+.card code {
+    background: #eef2ff;
+    color: #3730a3;
+    padding: 3px 7px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+
+/* ================================
+   IDENTITAS
+================================ */
+
+.identity {
+    display: grid;
+    gap: 8px;
+}
+
+.identity p {
+    background: #f8fafc;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin: 0;
+}
+
+
+/* ================================
+   FORM
+================================ */
+
+label {
+    display: block;
+    margin-top: 14px;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #334155;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+    background: white;
+    color: #172033;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+
+/* ================================
+   BUTTON
+================================ */
+
+button {
+    margin-top: 14px;
+    margin-right: 7px;
+    padding: 11px 17px;
+    border: none;
+    border-radius: 8px;
+    background: #1e3a8a;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.15s, background 0.2s;
+}
+
+button:hover {
+    background: #172554;
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+
+/* ================================
+   RESULT
+================================ */
+
+.result {
+    margin-top: 16px;
+    padding: 14px;
+    min-height: 20px;
+    background: #f8fafc;
+    border-left: 4px solid #2563eb;
+    border-radius: 6px;
+    color: #334155;
+}
+
+
+/* ================================
+   TODO LIST
+================================ */
+
+#todoList {
+    list-style: none;
+    margin-top: 16px;
+}
+
+#todoList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+}
+
+#todoList li button {
+    margin: 0;
+    padding: 7px 10px;
+    background: #dc2626;
+}
+
+#todoList li button:hover {
+    background: #b91c1c;
+}
+
+
+/* ================================
+   SEARCH
+================================ */
+
+#hasilSearch {
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+#hasilSearch li {
+    margin-bottom: 5px;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: #64748b;
+    font-size: 14px;
+}
+
+
+/* ================================
+   DARK MODE
+================================ */
+
+body.dark-mode {
+    background: #0f172a;
+    color: #e2e8f0;
+}
+
+body.dark-mode .card {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+body.dark-mode .card h2 {
+    color: #bfdbfe;
+}
+
+body.dark-mode label {
+    color: #cbd5e1;
+}
+
+body.dark-mode input,
+body.dark-mode select {
+    background: #0f172a;
+    color: #e2e8f0;
+    border-color: #475569;
+}
+
+body.dark-mode .result {
+    background: #0f172a;
+    color: #cbd5e1;
+    border-color: #60a5fa;
+}
+
+body.dark-mode .identity p {
+    background: #0f172a;
+}
+
+body.dark-mode .card code {
+    background: #312e81;
+    color: #e0e7ff;
+}
+
+body.dark-mode #todoList li {
+    background: #0f172a;
+    border-color: #475569;
+}
+
+body.dark-mode footer {
+    color: #94a3b8;
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 600px) {
+
+    .header {
+        padding: 35px 16px;
+    }
+
+    .header h1 {
+        font-size: 28px;
+    }
+
+    .container {
+        width: min(100% - 20px, 1000px);
+        margin: 20px auto;
+    }
+
+    .card {
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .card h2 {
+        font-size: 19px;
+    }
+
+    button {
+        width: 100%;
+        margin-right: 0;
+    }
+}
