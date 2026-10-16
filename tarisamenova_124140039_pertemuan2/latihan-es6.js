@@ -108,3 +108,107 @@ document.getElementById("operatorsBtn").addEventListener("click", () => {
   document.getElementById("operatorsOutput").textContent =
     demoOperators();
 });
+
+/* ==========================================
+   LATIHAN LANJUTAN: DESTRUCTURING, SPREAD,
+   DAN REST PARAMETERS
+========================================== */
+
+// Latihan 1: Nested destructuring minimal 3 level
+function latihanNestedDestructuring() {
+  const mahasiswa = {
+    nama: "Tarisa Menova",
+    akademik: {
+      program: {
+        mataKuliah: "Pemrograman Web",
+        pertemuan: 2
+      }
+    }
+  };
+
+  const {
+    nama,
+    akademik: {
+      program: { mataKuliah, pertemuan }
+    }
+  } = mahasiswa;
+
+  return `Nama: ${nama}
+Mata kuliah: ${mataKuliah}
+Pertemuan: ${pertemuan}`;
+}
+
+// Latihan 2: Rest parameter untuk min, max, dan rata-rata
+function latihanStatistik(...angka) {
+  if (angka.length === 0) {
+    return "Masukkan minimal satu angka.";
+  }
+
+  const min = Math.min(...angka);
+  const max = Math.max(...angka);
+  const average =
+    angka.reduce((total, nilai) => total + nilai, 0) / angka.length;
+
+  return `Angka: ${angka.join(", ")}
+Minimum: ${min}
+Maksimum: ${max}
+Rata-rata: ${average.toFixed(2)}`;
+}
+
+// Latihan 3: Merge tiga object dengan spread
+function latihanMergeObject() {
+  const identitas = {
+    nama: "Tarisa Menova",
+    nim: "124140039"
+  };
+
+  const kuliah = {
+    mataKuliah: "Pemrograman Web",
+    pertemuan: 2
+  };
+
+  const status = {
+    status: "Belum selesai",
+    nilai: 0
+  };
+
+  const hasil = {
+    ...identitas,
+    ...kuliah,
+    ...status,
+    status: "Sedang dikerjakan",
+    nilai: 100
+  };
+
+  return JSON.stringify(hasil, null, 2);
+}
+
+// Latihan 4: Destructuring dalam for...of
+function latihanForOfDestructuring() {
+  const daftarTugas = [
+    { nama: "Membuat dashboard", status: "Selesai" },
+    { nama: "Latihan ES6+", status: "Dikerjakan" },
+    { nama: "Membuat README", status: "Dikerjakan" }
+  ];
+
+  let hasil = "";
+
+  for (const { nama, status } of daftarTugas) {
+    hasil += `${nama} — ${status}\n`;
+  }
+
+  return hasil;
+}
+
+// Tampilkan hasil latihan di Console browser
+console.log("Latihan 1: Nested Destructuring");
+console.log(latihanNestedDestructuring());
+
+console.log("Latihan 2: Statistik");
+console.log(latihanStatistik(70, 85, 90, 100));
+
+console.log("Latihan 3: Merge Object");
+console.log(latihanMergeObject());
+
+console.log("Latihan 4: Destructuring dalam for...of");
+console.log(latihanForOfDestructuring());
