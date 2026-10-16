@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Latihan JavaScript - Tarisa Menova</title>
+
+    <link rel="stylesheet" href="latihan.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div>
+            <p class="label">PRAKTIKUM PEMROGRAMAN WEB</p>
+            <h1>Latihan JavaScript</h1>
+            <p>
+                Kumpulan latihan JavaScript berdasarkan materi praktikum.
+            </p>
+        </div>
+    </header>
+
+
+    <main class="container">
+
+        <!-- IDENTITAS -->
+        <section class="card">
+            <h2>Identitas</h2>
+
+            <div class="identity">
+                <p><strong>Nama:</strong> Tarisa Menova</p>
+                <p><strong>NIM:</strong> 124140039</p>
+                <p><strong>Kelas:</strong> PAW RA</p>
+            </div>
+        </section>
+
+
+        <!-- 1. VARIABLES -->
+        <section class="card">
+            <h2>1. Variables, Const, dan Let</h2>
+
+            <p>
+                Contoh penggunaan variabel menggunakan
+                <code>let</code> dan <code>const</code>.
+            </p>
+
+            <button onclick="tampilkanVariabel()">
+                Jalankan Latihan
+            </button>
+
+            <div id="hasilVariabel" class="result"></div>
+        </section>
+
+
+        <!-- 2. CONDITIONAL -->
+        <section class="card">
+            <h2>2. Percabangan If / Else</h2>
+
+            <label for="nilai">
+                Masukkan nilai:
+            </label>
+
+            <input
+                type="number"
+                id="nilai"
+                placeholder="Contoh: 85"
+            >
+
+            <button onclick="cekNilai()">
+                Cek Nilai
+            </button>
+
+            <div id="hasilNilai" class="result"></div>
+        </section>
+
+
+        <!-- 3. TERNARY -->
+        <section class="card">
+            <h2>3. Ternary Operator</h2>
+
+            <label for="umur">
+                Masukkan umur:
+            </label>
+
+            <input
+                type="number"
+                id="umur"
+                placeholder="Contoh: 18"
+            >
+
+            <button onclick="cekUmur()">
+                Cek Umur
+            </button>
+
+            <div id="hasilUmur" class="result"></div>
+        </section>
+
+
+        <!-- 4. SWITCH -->
+        <section class="card">
+            <h2>4. Switch Case</h2>
+
+            <label for="hari">
+                Pilih nomor hari:
+            </label>
+
+            <select id="hari">
+                <option value="">-- Pilih Hari --</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+            </select>
+
+            <button onclick="cekHari()">
+                Tampilkan Hari
+            </button>
+
+            <div id="hasilHari" class="result"></div>
+        </section>
+
+
+        <!-- 5. LOOP -->
+        <section class="card">
+            <h2>5. Perulangan</h2>
+
+            <p>
+                Contoh perulangan menggunakan <code>for</code>.
+            </p>
+
+            <button onclick="jalankanLoop()">
+                Jalankan Perulangan
+            </button>
+
+            <div id="hasilLoop" class="result"></div>
+        </section>
+
+
+        <!-- 6. FUNCTION -->
+        <section class="card">
+            <h2>6. Function</h2>
+
+            <label for="angka1">
+                Angka pertama:
+            </label>
+
+            <input
+                type="number"
+                id="angka1"
+                placeholder="Masukkan angka"
+            >
+
+            <label for="angka2">
+                Angka kedua:
+            </label>
+
+            <input
+                type="number"
+                id="angka2"
+                placeholder="Masukkan angka"
+            >
+
+            <button onclick="hitungPenjumlahan()">
+                Hitung
+            </button>
+
+            <div id="hasilFunction" class="result"></div>
+        </section>
+
+
+        <!-- 7. FACTORIAL -->
+        <section class="card">
+            <h2>7. Faktorial</h2>
+
+            <label for="angkaFaktorial">
+                Masukkan angka:
+            </label>
+
+            <input
+                type="number"
+                id="angkaFaktorial"
+                min="0"
+                placeholder="Contoh: 5"
+            >
+
+            <button onclick="hitungFaktorial()">
+                Hitung Faktorial
+            </button>
+
+            <div id="hasilFaktorial" class="result"></div>
+        </section>
+
+
+        <!-- 8. PRIME -->
+        <section class="card">
+            <h2>8. Bilangan Prima</h2>
+
+            <label for="angkaPrima">
+                Masukkan angka:
+            </label>
+
+            <input
+                type="number"
+                id="angkaPrima"
+                placeholder="Contoh: 7"
+            >
+
+            <button onclick="cekPrima()">
+                Cek Bilangan
+            </button>
+
+            <div id="hasilPrima" class="result"></div>
+        </section>
+
+
+        <!-- 9. BMI -->
+        <section class="card">
+            <h2>9. BMI Calculator</h2>
+
+            <label for="berat">
+                Berat badan (kg):
+            </label>
+
+            <input
+                type="number"
+                id="berat"
+                step="0.1"
+                placeholder="Contoh: 60"
+            >
+
+            <label for="tinggi">
+                Tinggi badan (cm):
+            </label>
+
+            <input
+                type="number"
+                id="tinggi"
+                step="0.1"
+                placeholder="Contoh: 165"
+            >
+
+            <button onclick="hitungBMI()">
+                Hitung BMI
+            </button>
+
+            <div id="hasilBMI" class="result"></div>
+        </section>
+
+
+        <!-- 10. FIZZBUZZ -->
+        <section class="card">
+            <h2>10. FizzBuzz</h2>
+
+            <p>
+                Menampilkan angka 1 sampai 30 dengan aturan FizzBuzz.
+            </p>
+
+            <button onclick="jalankanFizzBuzz()">
+                Jalankan FizzBuzz
+            </button>
+
+            <div id="hasilFizzBuzz" class="result"></div>
+        </section>
+
+
+        <!-- 11. ARRAY -->
+        <section class="card">
+            <h2>11. Array</h2>
+
+            <p>
+                Contoh penggunaan array untuk menyimpan beberapa data.
+            </p>
+
+            <button onclick="tampilkanArray()">
+                Tampilkan Array
+            </button>
+
+            <div id="hasilArray" class="result"></div>
+        </section>
+
+
+        <!-- 12. OBJECT -->
+        <section class="card">
+            <h2>12. Object</h2>
+
+            <button onclick="tampilkanObject()">
+                Tampilkan Object
+            </button>
+
+            <div id="hasilObject" class="result"></div>
+        </section>
+
+
+        <!-- 13. MAP FILTER REDUCE -->
+        <section class="card">
+            <h2>13. Map, Filter, dan Reduce</h2>
+
+            <button onclick="jalankanArrayMethod()">
+                Jalankan
+            </button>
+
+            <div id="hasilArrayMethod" class="result"></div>
+        </section>
+
+
+        <!-- 14. FORM MAHASISWA -->
+        <section class="card">
+            <h2>14. Form Data Mahasiswa</h2>
+
+            <form id="formMahasiswa">
+
+                <label for="namaMahasiswa">
+                    Nama:
+                </label>
+
+                <input
+                    type="text"
+                    id="namaMahasiswa"
+                    placeholder="Masukkan nama"
+                >
+
+                <label for="nimMahasiswa">
+                    NIM:
+                </label>
+
+                <input
+                    type="text"
+                    id="nimMahasiswa"
+                    placeholder="Masukkan NIM"
+                >
+
+                <button type="submit">
+                    Simpan Data
+                </button>
+
+            </form>
+
+            <div id="hasilMahasiswa" class="result"></div>
+        </section>
+
+
+        <!-- 15. LOCAL STORAGE -->
+        <section class="card">
+            <h2>15. LocalStorage</h2>
+
+            <p>
+                Data nama disimpan di browser menggunakan LocalStorage.
+            </p>
+
+            <button onclick="simpanLocalStorage()">
+                Simpan Data
+            </button>
+
+            <button onclick="ambilLocalStorage()">
+                Ambil Data
+            </button>
+
+            <button onclick="hapusLocalStorage()">
+                Hapus Data
+            </button>
+
+            <div id="hasilLocalStorage" class="result"></div>
+        </section>
+
+
+        <!-- 16. TODO LIST -->
+        <section class="card">
+            <h2>16. Todo List</h2>
+
+            <label for="todoInput">
+                Kegiatan:
+            </label>
+
+            <input
+                type="text"
+                id="todoInput"
+                placeholder="Contoh: Belajar JavaScript"
+            >
+
+            <button onclick="tambahTodo()">
+                Tambah
+            </button>
+
+            <ul id="todoList"></ul>
+        </section>
+
+
+        <!-- 17. SEARCH -->
+        <section class="card">
+            <h2>17. Search dan Filter</h2>
+
+            <label for="searchInput">
+                Cari nama:
+            </label>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Ketik nama..."
+                oninput="cariNama()"
+            >
+
+            <ul id="hasilSearch"></ul>
+        </section>
+
+
+        <!-- 18. DARK MODE -->
+        <section class="card">
+            <h2>18. Dark Mode</h2>
+
+            <p>
+                Tombol berikut digunakan untuk mengubah tampilan halaman.
+            </p>
+
+            <button onclick="toggleDarkMode()">
+                Toggle Dark Mode
+            </button>
+        </section>
+
+
+        <!-- 19. API -->
+        <section class="card">
+            <h2>19. Fetch API</h2>
+
+            <p>
+                Data diambil menggunakan Fetch API dan async/await.
+            </p>
+
+            <button onclick="ambilDataAPI()">
+                Ambil Data API
+            </button>
+
+            <div id="hasilAPI" class="result"></div>
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>
+            © 2026 Tarisa Menova — Praktikum Pemrograman Web ITERA
+        </p>
+    </footer>
+
+
+    <script src="latihan.js"></script>
+
+</body>
+</html>

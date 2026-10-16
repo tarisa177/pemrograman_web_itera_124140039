@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Mini POS - Kasir Kampus</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="header">
+
+        <div class="header-content">
+
+            <p class="eyebrow">
+                PRAKTIKUM PEMROGRAMAN WEB
+            </p>
+
+            <h1>
+                Mini POS
+            </h1>
+
+            <p class="header-description">
+                Aplikasi Kasir & Keranjang Belanja
+                Sederhana
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+
+        <!-- =========================
+             IDENTITAS
+        ========================== -->
+
+        <section class="identity-card">
+
+            <div>
+
+                <span>Nama</span>
+
+                <strong>
+                    Tarisa Menova
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>NIM</span>
+
+                <strong>
+                    124140039
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>Kelas</span>
+
+                <strong>
+                    PAW RA
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FORM INPUT BARANG
+        ========================== -->
+
+        <section class="card">
+
+            <div class="section-title">
+
+                <div>
+
+                    <p class="eyebrow">
+                        INPUT PRODUK
+                    </p>
+
+                    <h2>
+                        Tambah Barang
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <form id="productForm">
+
+
+                <!-- NAMA BARANG -->
+
+                <div class="form-group">
+
+                    <label for="productName">
+                        Nama Barang
+                    </label>
+
+                    <input
+                        type="text"
+                        id="productName"
+                        placeholder="Contoh: Buku Tulis"
+                    >
+
+                    <small
+                        id="productNameError"
+                        class="error"
+                    ></small>
+
+                </div>
+
+
+                <div class="form-row">
+
+
+                    <!-- HARGA -->
+
+                    <div class="form-group">
+
+                        <label for="productPrice">
+                            Harga Satuan
+                        </label>
+
+                        <input
+                            type="number"
+                            id="productPrice"
+                            placeholder="Minimal Rp500"
+                            min="500"
+                        >
+
+                        <small
+                            id="productPriceError"
+                            class="error"
+                        ></small>
+
+                    </div>
+
+
+                    <!-- QTY -->
+
+                    <div class="form-group">
+
+                        <label for="productQty">
+                            Jumlah / Qty
+                        </label>
+
+                        <input
+                            type="number"
+                            id="productQty"
+                            placeholder="Minimal 1"
+                            min="1"
+                            step="1"
+                        >
+
+                        <small
+                            id="productQtyError"
+                            class="error"
+                        ></small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        + Tambah ke Keranjang
+                    </button>
+
+
+                    <button
+                        type="button"
+                        id="resetForm"
+                        class="btn btn-secondary"
+                    >
+                        Reset Form
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- =========================
+             KERANJANG
+        ========================== -->
+
+        <section class="card">
+
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="eyebrow">
+                        SHOPPING CART
+                    </p>
+
+                    <h2>
+                        Keranjang Belanja
+                    </h2>
+
+                </div>
+
+
+                <span
+                    id="cartCount"
+                    class="cart-count"
+                >
+                    0 item
+                </span>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                No
+                            </th>
+
+                            <th>
+                                Nama Barang
+                            </th>
+
+                            <th>
+                                Harga Satuan
+                            </th>
+
+                            <th>
+                                Qty
+                            </th>
+
+                            <th>
+                                Subtotal
+                            </th>
+
+                            <th>
+                                Aksi
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody
+                        id="cartTableBody"
+                    >
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <div
+                id="emptyCart"
+                class="empty-cart"
+            >
+
+                Keranjang masih kosong.
+                Silakan tambahkan barang.
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             RINGKASAN PEMBAYARAN
+        ========================== -->
+
+        <section class="checkout-grid">
+
+
+            <!-- RINGKASAN -->
+
+            <div class="card summary-card">
+
+                <p class="eyebrow">
+                    RINGKASAN
+                </p>
+
+                <h2>
+                    Total Belanja
+                </h2>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Total Belanja
+                    </span>
+
+                    <strong id="totalBelanja">
+                        Rp0
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-row discount-row">
+
+                    <span>
+                        Diskon 10%
+                    </span>
+
+                    <strong id="discount">
+                        Rp0
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-row total-row">
+
+                    <span>
+                        Total Akhir
+                    </span>
+
+                    <strong id="totalAkhir">
+                        Rp0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- PEMBAYARAN -->
+
+            <div class="card payment-card">
+
+                <p class="eyebrow">
+                    PEMBAYARAN
+                </p>
+
+                <h2>
+                    Uang Bayar
+                </h2>
+
+
+                <div class="form-group">
+
+                    <label for="payment">
+                        Nominal Uang Bayar
+                    </label>
+
+                    <input
+                        type="number"
+                        id="payment"
+                        placeholder="Masukkan uang yang diterima"
+                        min="0"
+                    >
+
+                    <small
+                        id="paymentError"
+                        class="error"
+                    ></small>
+
+                </div>
+
+
+                <div
+                    id="paymentResult"
+                    class="payment-result"
+                >
+                    Masukkan uang bayar untuk
+                    menghitung kembalian.
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             TRANSAKSI BARU
+        ========================== -->
+
+        <section class="new-transaction">
+
+            <button
+                type="button"
+                id="newTransaction"
+                class="btn btn-danger"
+            >
+                Transaksi Baru
+            </button>
+
+        </section>
+<!-- =========================
+     CATATAN TRANSAKSI
+========================== -->
+
+<section class="card">
+
+    <div class="section-heading">
+
+        <div>
+            <p class="eyebrow">
+                RIWAYAT
+            </p>
+
+            <h2>
+                Catatan Transaksi
+            </h2>
+
+        </div>
+
+        <span
+            id="transactionHistoryCount"
+            class="cart-count"
+        >
+            0 transaksi
+        </span>
+
+    </div>
+
+
+    <div class="table-wrapper">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>No</th>
+
+                    <th>Tanggal</th>
+
+                    <th>Total Belanja</th>
+
+                    <th>Diskon</th>
+
+                    <th>Total Akhir</th>
+
+                    <th>Uang Bayar</th>
+
+                    <th>Kembalian</th>
+
+                    <th>Aksi</th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody
+                id="transactionHistoryBody"
+            >
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <div
+        id="emptyTransactionHistory"
+        class="empty-cart"
+    >
+        Belum ada catatan transaksi.
+    </div>
+
+
+    <button
+        type="button"
+        id="clearTransactionHistory"
+        class="btn btn-danger"
+    >
+        Hapus Catatan Transaksi
+    </button>
+
+</section>
+
+        <!-- =========================
+             LOCAL STORAGE
+        ========================== -->
+
+        <section class="storage-status">
+
+            <span class="storage-dot"></span>
+
+            <div>
+
+                <strong>
+                    Keranjang tersimpan otomatis
+                </strong>
+
+                <p id="storageStatus">
+                    Data keranjang menggunakan
+                    localStorage.
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Mini POS — Tarisa Menova
+            | 124140039
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
