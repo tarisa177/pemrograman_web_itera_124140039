@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dashboard produktivitas mahasiswa untuk mengatur tugas kuliah.">
+  <title>StudySpace — Student Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="StudySpace beranda">
+        <span class="brand-mark">S</span><span>study<span class="brand-light">space</span></span>
+      </a>
+      <div class="side-label">MENU UTAMA</div>
+      <a class="nav-item active" href="#dashboard"><span>▦</span> Dashboard</a>
+      <a class="nav-item" href="#task-section"><span>✓</span> Tugas kuliah</a>
+      <div class="sidebar-note">
+        <div class="note-icon">✦</div>
+        <p class="note-title">Sedikit demi sedikit.</p>
+        <p class="note-copy">Konsistensi kecil hari ini membawa hasil besar nanti.</p>
+      </div>
+      <div class="profile">
+        <div class="avatar">M</div>
+        <div><strong>Mahasiswa</strong><small>Student workspace</small></div>
+      </div>
+    </aside>
+
+    <main class="main-content" id="dashboard">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow" id="today-label">RUANG BELAJAR KAMU</p>
+          <h1>Dashboard <span>mahasiswa.</span></h1>
+          <p class="subtitle">Atur tugasmu, jaga fokusmu, capai targetmu.</p>
+        </div>
+        <div class="top-date"><span class="date-dot"></span><span id="date-display">Hari ini</span></div>
+      </header>
+
+      <section class="welcome-card">
+        <div class="welcome-copy">
+          <span class="welcome-tag">✦ YOUR STUDY SPACE</span>
+          <h2>Pelan-pelan, yang penting<br><span>tetap berjalan.</span></h2>
+          <p>Satu tugas yang selesai adalah satu langkah lebih dekat ke tujuanmu.</p>
+          <a href="#task-section" class="welcome-link">Lihat daftar tugas <span>↗</span></a>
+        </div>
+        <div class="welcome-art" aria-hidden="true">
+          <div class="sun"></div><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="book book-back"></div><div class="book book-front"><div class="book-line"></div><div class="book-line short"></div><div class="book-line"></div></div>
+          <div class="sparkle sparkle-one">✦</div><div class="sparkle sparkle-two">✧</div>
+        </div>
+      </section>
+
+      <section class="stats-grid" aria-label="Ringkasan tugas">
+        <article class="stat-card"><div class="stat-top"><span>Total tugas</span><span class="stat-icon purple">▤</span></div><div class="stat-number" id="total-count">0</div><div class="stat-foot">Semua tugas yang tercatat</div></article>
+        <article class="stat-card"><div class="stat-top"><span>Belum selesai</span><span class="stat-icon orange">◷</span></div><div class="stat-number" id="pending-count">0</div><div class="stat-foot">Fokus untuk langkah berikutnya</div></article>
+        <article class="stat-card"><div class="stat-top"><span>Selesai</span><span class="stat-icon green">✓</span></div><div class="stat-number" id="done-count">0</div><div class="stat-foot"><span id="progress-label">0% progres</span><div class="progress-track"><div id="progress-bar"></div></div></div></article>
+      </section>
+
+      <section class="content-grid">
+        <div class="panel tasks-panel" id="task-section">
+          <div class="panel-heading">
+            <div><p class="eyebrow">KEEP IT ORGANIZED</p><h2>Daftar tugas</h2></div>
+            <button class="primary-btn" id="add-task-btn" type="button"><span>＋</span> Tambah tugas</button>
+          </div>
+          <form id="task-form" class="task-form hidden">
+            <div class="form-heading"><strong id="form-title">Tugas baru</strong><button type="button" id="cancel-form" class="icon-btn" aria-label="Tutup form">×</button></div>
+            <input type="hidden" id="task-id">
+            <label for="task-name">Nama tugas</label>
+            <input id="task-name" name="task-name" maxlength="100" placeholder="Contoh: Laporan praktikum basis data" required>
+            <div class="form-row">
+              <div><label for="task-course">Mata kuliah</label><input id="task-course" maxlength="60" placeholder="Contoh: Pemrograman Web" required></div>
+              <div><label for="task-deadline">Deadline</label><input id="task-deadline" type="date" required></div>
+            </div>
+            <label for="task-priority">Prioritas</label>
+            <select id="task-priority"><option value="Sedang">Sedang</option><option value="Tinggi">Tinggi</option><option value="Rendah">Rendah</option></select>
+            <div class="form-actions"><button type="button" class="secondary-btn" id="cancel-form-bottom">Batal</button><button type="submit" class="primary-btn">Simpan tugas</button></div>
+          </form>
+          <div class="task-toolbar">
+            <div class="filter-tabs" role="group" aria-label="Filter tugas">
+              <button type="button" class="filter-tab selected" data-filter="all">Semua</button>
+              <button type="button" class="filter-tab" data-filter="pending">Berjalan</button>
+              <button type="button" class="filter-tab" data-filter="done">Selesai</button>
+            </div>
+            <span class="task-total" id="task-total-label">0 tugas</span>
+          </div>
+          <div id="task-list" class="task-list" aria-live="polite"></div>
+          <div id="empty-state" class="empty-state"><div class="empty-illustration">✎</div><strong>Belum ada tugas di sini</strong><p>Tambahkan tugas kuliahmu supaya semuanya lebih teratur.</p><button type="button" class="text-btn" id="empty-add-btn">＋ Tambah tugas pertama</button></div>
+        </div>
+
+        <div class="right-column">
+          <section class="panel weather-panel">
+            <div class="panel-heading compact"><div><p class="eyebrow">CAMPUS WEATHER</p><h2>Cuaca kampus</h2></div><span class="weather-icon" id="weather-icon">☀</span></div>
+            <p class="weather-location">Lampung Selatan, Indonesia</p>
+            <div class="weather-main"><div class="temperature" id="temperature">--°</div><div><strong id="weather-condition">Mengambil data...</strong><small id="weather-detail">Open-Meteo API</small></div></div>
+            <div class="weather-divider"></div>
+            <div class="weather-footer"><span>◉ Data cuaca real-time</span><span id="weather-updated">Memuat...</span></div>
+            <p id="weather-error" class="weather-error hidden">Cuaca tidak dapat dimuat. Periksa koneksi internet lalu muat ulang halaman.</p>
+          </section>
+          <section class="quote-card">
+            <div class="quote-mark">“</div>
+            <p id="quote-text">Kamu tidak harus hebat untuk memulai, tetapi kamu harus memulai untuk menjadi hebat.</p>
+            <div class="quote-bottom"><span class="quote-line"></span><span id="quote-author">Zig Ziglar</span></div>
+            <button type="button" class="quote-refresh" id="refresh-quote" title="Ambil kutipan baru">↻ Kutipan baru</button>
+          </section>
+          <section class="tip-card"><div class="tip-symbol">✧</div><div><strong>Tips produktivitas</strong><p>Mulai dari tugas kecil. Tandai selesai setiap kali kamu menuntaskan satu pekerjaan.</p></div></section>
+        </div>
+      </section>
+      <footer class="footer"><span>© <span id="year"></span> StudySpace</span><span>Dibuat untuk mendukung produktivitas mahasiswa ✦</span></footer>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
