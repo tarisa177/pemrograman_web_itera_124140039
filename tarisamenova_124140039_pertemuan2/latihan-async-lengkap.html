@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latihan Async Programming</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 25px auto;
+      padding: 20px;
+      background: #f3f5f9;
+      color: #222;
+    }
+
+    h1, h2 { color: #3157a4; }
+
+    section {
+      background: white;
+      padding: 16px;
+      margin: 16px 0;
+      border-radius: 8px;
+    }
+
+    button {
+      background: #3157a4;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 14px;
+      margin: 4px 0;
+      cursor: pointer;
+    }
+
+    pre {
+      background: #edf0f5;
+      padding: 12px;
+      border-radius: 5px;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+  </style>
+  <script src="latihan-async-lengkap.js" defer></script>
+</head>
+<body>
+  <h1>Async Programming</h1>
+  <p>Latihan Promise, async/await, penanganan error, dan operasi paralel.</p>
+
+  <section>
+    <h2>1. Promise Dasar dan finally()</h2>
+    <button onclick="demoPromiseDasar()">Jalankan Demo</button>
+    <pre id="hasil1">Hasil akan muncul di sini.</pre>
+  </section>
+
+  <section>
+    <h2>2. Promise Chaining</h2>
+    <button onclick="demoChaining()">Jalankan Demo</button>
+    <pre id="hasil2">Hasil akan muncul di sini.</pre>
+  </section>
+
+  <section>
+    <h2>3. Promise.all()</h2>
+    <button onclick="demoPromiseAll()">Jalankan Demo</button>
+    <pre id="hasil3">Hasil akan muncul di sini.</pre>
+  </section>
+
+  <section>
+    <h2>4. Promise.race()</h2>
+    <button onclick="demoPromiseRace()">Jalankan Demo</button>
+    <pre id="hasil4">Hasil akan muncul di sini.</pre>
+  </section>
+
+  <section>
+    <h2>5. Promise.allSettled()</h2>
+    <button onclick="demoAllSettled()">Jalankan Demo</button>
+    <pre id="hasil5">Hasil akan muncul di sini.</pre>
+  </section>
+
+  <section>
+    <h2>6. Promise.any()</h2>
+    <button onclick="demoPromiseAny()">Jalankan Demo</button>
+    <pre id="hasil6">Hasil akan muncul di sini.</pre>
+  </section>
+
+  <section>
+    <h2>7. Async/Await dan try/catch</h2>
+    <button onclick="demoAsyncAwait()">Jalankan Demo</button>
+    <pre id="hasil7">Hasil akan muncul di sini.</pre>
+  </section>
+
+  <section>
+    <h2>8. Operasi Paralel</h2>
+    <button onclick="demoParalel()">Jalankan Demo</button>
+    <pre id="hasil8">Hasil akan muncul di sini.</pre>
+  </section>
+
+  <section>
+    <h2>9. Latihan Menggabungkan Data</h2>
+    <button onclick="demoGabungData()">Jalankan Demo</button>
+    <pre id="hasil9">Hasil akan muncul di sini.</pre>
+  </section>
+</body>
+</html>
